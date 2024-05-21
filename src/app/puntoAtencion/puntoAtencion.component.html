@@ -1,0 +1,25 @@
+
+<div class="container mt-4" >
+  <h1>Create Punto de atencion</h1>
+  <div class="card">
+
+<form>
+  <div class="form-group">
+    <label>Ubicacion</label>
+    <input type="text" class="form-control" id="ubicacion" [(ngModel)]="ubicacion" [ngModelOptions]="{standalone: true}" name ="ubicacion" aria-describedby="emailHelp" placeholder="Enter ubicacion">
+  </div>
+
+  <div class="form-group">
+    <label>Tipo de punto de atencion</label>
+    <input class="form-control" id="tipoPuntoAtencion" [(ngModel)]="tipoPuntoAtencion" [ngModelOptions]="{standalone: true}" name="tipoPuntoAtencion" required placeholder="Enter type">
+      
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Oficina ID</label>
+    <input type="text" class="form-control" id="oficinaId"  [(ngModel)]="oficinaId" [ngModelOptions]="{standalone: true}" name ="oficinaId" aria-describedby="emailHelp" placeholder="Enter oficinaId" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-4" (click)="register()" >Submit</button>
+</form>
+  </div>

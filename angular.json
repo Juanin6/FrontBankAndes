@@ -24,6 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            
             "outputPath": "dist/front-bank-andes",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -72,8 +73,13 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
+            
             "production": {
+              "proxyConfig": "proxy.conf.json",
               "buildTarget": "frontBankAndes:build:production"
             },
             "development": {
@@ -109,5 +115,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "82d02fd8-b951-4498-bfa7-83a7542db864"
   }
 }

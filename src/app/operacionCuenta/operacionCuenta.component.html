@@ -1,0 +1,49 @@
+
+<div class="container mt-4" >
+  <h1>Create Operacion Cuenta</h1>
+  <div class="card">
+
+<form>
+  <div class="form-group">
+    <label>Cuenta Origen ID</label>
+    <input type="text" class="form-control" id="cuentaorigenID" [(ngModel)]="cuentaorigenID" [ngModelOptions]="{standalone: true}" name ="cuentaorigenID" aria-describedby="emailHelp" placeholder="Enter  the cuentaOrigenID">
+  </div>
+
+  <div class="form-group" *ngIf="mostrarCuentaDestino">
+    <label id="labelCuentaDestino"  >Cuenta Destino ID</label>
+    <input type="text" class="form-control" id="cuentadestino" [(ngModel)]="cuentadestino" [ngModelOptions]="{standalone: true}" name ="cuentadestino" aria-describedby="emailHelp" placeholder="Enter the cuentaDestinoID">
+  </div>
+
+  <div class="form-group">
+    <label >Punto Atencion ID</label>
+    <input type="text" class="form-control" id="puntoAtencion" min=0 [(ngModel)]="puntoAtencion" [ngModelOptions]="{standalone: true}" name ="puntoAtencion" aria-describedby="emailHelp" placeholder="Enter  the puntoAtencionID" required>
+  </div>
+
+  <div class="form-group">
+    <label >Mes</label>
+    <input type="number" class="form-control" id="mes" min=1 max=12 [(ngModel)]="mes" [ngModelOptions]="{standalone: true}" name ="mes" aria-describedby="emailHelp" placeholder="Enter mes" required>
+  </div>
+
+  <div class="form-group">
+    <label >Fecha</label>
+    <input type="date" class="form-control" id="fecha" min=1 [(ngModel)]="fecha" [ngModelOptions]="{standalone: true}" name ="fecha"  placeholder="Enter Fecha" required>
+  </div>
+
+  <div class="form-group">
+    <label >Valor</label>
+    <input type="number" class="form-control" id="valor" min=1 [(ngModel)]="valor" [ngModelOptions]="{standalone: true}" name ="valor" aria-describedby="emailHelp" placeholder="Enter valor" required>
+  </div>
+
+  <div class="form-group">
+    <label>Tipo de operacion</label>
+    <select class="form-control" id="tipoOperacion" [(ngModel)]="tipoOperacion"  [ngModelOptions]="{standalone: true}" name="tipoOperacion" (change)="onChangeTipoOperacion()" required>
+      <option value="Consignar">Consignar</option>
+      <option value="Retirar">Retirar</option>
+      <option value="Transferencia">Transferencia</option>
+      
+  </select>
+  </div>
+  <button type="submit" class="btn btn-primary mt-4" (click)="register()" >Submit</button>
+</form>
+  </div>
+  

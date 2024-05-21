@@ -1,0 +1,158 @@
+
+<div class="container mt-4" >
+  <h1>Create Cuenta</h1>
+  <div class="card">
+
+<form>
+  <div class="form-group">
+    <label>ClienteId</label>
+    <input type="text" class="form-control" id="cliente" [(ngModel)]="cliente" [ngModelOptions]="{standalone: true}" name ="cliente" aria-describedby="emailHelp" placeholder="Enter clienteId">
+  </div>
+
+  <div class="form-group">
+    <label>Tipo de cuenta</label>
+    <select class="form-control" id="tipoCuenta" [(ngModel)]="tipoCuenta" [ngModelOptions]="{standalone: true}" name="tipoCuenta" required>
+      <option value="Ahorros">Ahorros</option>
+      <option value="Corriente">Corriente</option>
+  </select>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Saldo</label>
+    <input type="number" class="form-control" id="saldo" min=0 [(ngModel)]="saldo" [ngModelOptions]="{standalone: true}" name ="saldo" aria-describedby="emailHelp" placeholder="Enter saldo" required>
+  </div>
+
+  <input type="hidden" id="estadoCuenta" name="estadoCuenta" [(ngModel)]="estadoCuenta" [ngModelOptions]="{standalone: true}" value="" />
+
+  
+  <button type="submit" class="btn btn-primary mt-4" (click)="register()" >Submit</button>
+</form>
+  </div>
+  <div>
+    <label for="id">IdCuenta:</label>
+    <input type="text" id="id" [(ngModel)]="iDCuentaFilter">
+
+    <label for="tipoCuenta">Tipo de Cuenta:</label>
+    <input type="text" id="tipoCuenta" [(ngModel)]="tipoCuentaFilter">
+  
+    <label for="saldoMin">Saldo Mínimo:</label>
+    <input type="number" min="0" id="saldoMin" [(ngModel)]="saldoMinFilter">
+  
+    <label for="saldoMax">Saldo Máximo:</label>
+    <input type="number" min="0" id="saldoMax" [(ngModel)]="saldoMaxFilter">
+  
+    <label for="cliente">Cliente:</label>
+    <input type="number" min="0" id="cliente" [(ngModel)]="clienteFilter">
+
+    <label for="EstadoCuenta">Estado de cuenta:</label>
+    <input type="text" id="estadoCuenta" [(ngModel)]="estadoCuentaFilter">
+  
+    
+    <button (click)="buscarCuentas(tipoCuentaFilter, saldoMinFilter, saldoMaxFilter, clienteFilter,estadoCuentaFilter,iDCuentaFilter)">Buscar Cuentas</button>
+    <button (click)="getAllCuentas() " >Reset</button>    
+<div>
+ 
+    <div class="container mt-4" >
+ 
+        <h1>Cuenta Table</h1>
+        <table class="table">
+        <thead>     
+        <tr>
+
+            <th scope="col">ID</th>
+            <th scope="col">ClienteID</th>
+            <th scope="col">Tipo de cuenta</th>
+            <th scope="col">Saldo</th>
+            <th scope="col">Estado de la cuenta</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cuentaItem of cuentaArray">
+           
+            <td>{{cuentaItem.idString}}</td>
+            <td>{{cuentaItem.cliente.timestamp }}</td>
+            <td>{{cuentaItem.tipoCuenta}}</td>
+            <td>{{cuentaItem.saldo}}</td>
+            <td>{{cuentaItem.estadoCuenta }}</td>
+            
+ 
+            <td>
+                <button type="button" class="btn btn-success"(click)="setCuentaToCerrada(cuentaItem)" >Cerrar</button>
+                <button type="button" class="btn btn-success" (click)="setCuentaToDesactivada(cuentaItem)">Desactivar</button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+ 
+ 
+    </div>
+  </div>
+</div>
+
+<div>
+  <div>
+
+  <h1>Operaciones Mensuales</h1>
+    
+<div class="" >
+  <div class="card">
+<form>
+  <div>
+    <label>Cuenta Id</label>
+    <input type="text" class="form-control" id="cuentaID" [(ngModel)]="cuentaID" [ngModelOptions]="{standalone: true}" name ="clienteID" aria-describedby="emailHelp" placeholder="Enter cuentaId">
+  </div>
+  <div class="form-group">
+  <label>Mes</label>
+  <input type="number" class="form-control" id="mes" min=1 [(ngModel)]="mes" [ngModelOptions]="{standalone: true}" name ="mes" aria-describedby="emailHelp" placeholder="Enter Mes">
+  </div>
+  <button type="submit" class="btn btn-primary mt-4" (click)="operacionesMensuales()" >Buscar Operaciones</button>
+</form>
+  </div>
+  <div>
+ 
+    <div  >
+ 
+        <h1>Cuenta Table</h1>
+        <table class="table">
+        <thead>     
+        <tr>
+
+            <th scope="col">ID</th>
+            <th scope="col">Cuenta Origen</th>
+            <th scope="col">Cuenta Destino</th>
+            <th scope="col">Punto de Atencion</th>
+            <th scope="col">Mes</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Tipo de Operacion</th>
+            <th scope="col">Saldo Cuenta Origen</th>
+            <th scope="col">Saldo Cuenta Destino</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cuentaItem of operacionesCuentaArray">
+           
+            <td>{{cuentaItem.idString}}</td>
+            <td>{{cuentaItem.cuentaOrigenID }}</td>
+            <td>{{cuentaItem.cuentaDestinoID}}</td>
+            <td>{{cuentaItem.puntoAtencion}}</td>
+            <td>{{cuentaItem.mes }}</td>
+            <td>{{cuentaItem.fecha }}</td>
+            <td>{{cuentaItem.valor }}</td>
+            <td>{{cuentaItem.tipoOperacion }}</td>
+            <td>{{cuentaItem.saldoCuentaOrigen }}</td>
+            <td>{{cuentaItem.saldoCuentaDestino }}</td>
+            
+ 
+            
+          </tr>
+          
+        </tbody>
+      </table>
+ 
+ 
+    </div>
+  </div>
+</div>
+</div>

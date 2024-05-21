@@ -1,0 +1,26 @@
+
+<div class="container mt-4" >
+  <h1>Create Oficina</h1>
+  <div class="card">
+
+<form>
+  <div class="form-group">
+    <label>Nombre</label>
+    <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}" name ="nombre" aria-describedby="emailHelp" placeholder="Enter nombre">
+  </div>
+
+  <div class="form-group">
+    <label>Direccion</label>
+    <input  type="text" class="form-control" id="direccion" [(ngModel)]="direccion" [ngModelOptions]="{standalone: true}" name="direccion" required placeholder="Enter direccion">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Numero Maximo de puntos de atencion</label>
+    <input type="number" class="form-control" id="maxPuntosAtencion" min=0 [(ngModel)]="maxPuntosAtencion" [ngModelOptions]="{standalone: true}" name ="maxPuntosAtencion" aria-describedby="emailHelp" placeholder="Enter" required>
+  </div>
+
+
+  
+  <button type="submit" class="btn btn-primary mt-4" (click)="register()" >Submit</button>
+</form>
+  </div>
